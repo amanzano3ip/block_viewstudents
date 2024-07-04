@@ -1,0 +1,100 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_viewstudents/student
+
+     Example context (json):
+}}
+<div class="student">
+
+    <img class="picture" src="{{ picture }}" alt="{{ fullname }}" />
+
+    <div class="data">
+
+        <div class="fullname">
+            <a href="{{ url }}" target="_blank">{{ fullname }}</a>
+        </div>
+        <div class="lastaccess">{{ lastaccess }}</div>
+
+    </div>
+
+    <div class="hasconnect">
+
+        {{# iscurrent }}
+            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+        {{/ iscurrent }}
+        {{^ iscurrent }}
+            <i class="fa fa-times" aria-hidden="true"></i>
+        {{/ iscurrent }}
+
+    </div>
+</div>
+
+<style>
+    div[data-region="block_viewstudents"] .student {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    div[data-region="block_viewstudents"] .student .picture {
+        width: 40px;
+        height: 40px;
+        background-color: grey;
+        margin-right: 10px;
+        min-width: 40px;
+        border-radius: 20px;
+    }
+
+    div[data-region="block_viewstudents"] .student .data {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        width: 100%;
+
+    }
+
+    div[data-region="block_viewstudents"] .student .data .fullname {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    div[data-region="block_viewstudents"] .student .data .lastaccess {
+        font-size: 11px;
+
+    }
+
+    div[data-region="block_viewstudents"] .student .data .hasconnect {
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    div[data-region="block_viewstudents"] .student .hasconnect i.fa.fa-check-circle-o {
+        font-size: 24px;
+        color: #2ab92a;
+    }
+
+    div[data-region="block_viewstudents"] .student .hasconnect i.fa.fa-times {
+        font-size: 24px;
+        color: #c9122a;
+    }
+
+</style>
+
+
